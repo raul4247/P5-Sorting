@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Roboto:100');
+
+.title{
+    font-family: 'Roboto', sans-serif;
+}
+
+.subtitle, .level-item{
+    font-family: 'Raleway', sans-serif;
+}
+
+.main-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.level-item{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+
+/* Sticky Footer */
+
+.main{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.main-content {
+    flex: 1;
+}
+
+.footer{
+    padding: 2%;
+}

@@ -10,6 +10,7 @@ let speedSlider
 let i, j
 let rectWidth = 2
 
+
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
 
@@ -23,6 +24,6 @@ function setup() {
 function draw() {
     background(0)
     
-    bubbleSort(unsorted, speedSlider.value(), unsorted.length)
+    bubbleSort(unsorted, speedSlider.value())
     drawArray(j, j+1, canvasHeight, rectWidth, unsorted)
 }

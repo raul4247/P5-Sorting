@@ -3,10 +3,10 @@ function resetArray(arr, limit) {
         arr[c] = random(limit)
 }
 
-function bubbleSort(arr, speed, size){
+function bubbleSort(arr, speed){
     for(let k = 0; k < speed; k++){
-        if(i < size){
-            if(j < size - i - 1){
+        if(i < arr.length){
+            if(j < arr.length - i - 1){
                 if (arr[j] > arr[j+1])
                     swap(arr, j, j + 1)
                 j++
@@ -22,6 +22,28 @@ function bubbleSort(arr, speed, size){
 function resetBubbleSort() {
     i = 0
     j = 0
+}
+
+function insertionSort(arr, speed) {
+    for(let k = 0; k < speed; k++){
+        if(i < arr.length){
+            if(j > 0){
+                if(arr[j] < arr[j-1])
+                    swap(arr, j, j-1)
+            }
+            else{
+                i++
+                j = i + 1
+            }
+            j--
+        }
+    }
+}
+
+function resetInsertionSort(first) {
+    i = 1
+    j = i
+    value = first
 }
 
 function swap(arr, p1, p2) {

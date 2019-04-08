@@ -3,10 +3,11 @@ let unsorted = []
 let speedSlider
 let i, j
 let value
+let rectWidth = 2
 
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
-    unsorted = new Array(canvasWidth)
+    unsorted = new Array(canvasWidth/rectWidth)
     resetArray()
 
     speedSlider = createSlider(1, 1001, 101, 100);
@@ -15,7 +16,6 @@ function setup() {
 
 function draw() {
     background(0)
-
 
     for(let k = 0; k < speedSlider.value(); k++){
         if(i < unsorted.length){
@@ -36,11 +36,13 @@ function draw() {
 
 function drawArray() {
     for(let c = 0; c < unsorted.length; c++) {
-        if(c == j || c == j+1)
-            stroke("red")
+        if(c == j || c == j-1)
+            fill("red")
         else
-            stroke("white")
-        line(c, canvasHeight, c, canvasHeight - unsorted[c]);
+            fill("white")
+
+        noStroke()
+        rect(c*rectWidth, canvasHeight - unsorted[c], rectWidth, unsorted[c])
     }
 }
 

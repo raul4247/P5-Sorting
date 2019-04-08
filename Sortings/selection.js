@@ -55,9 +55,3 @@ function resetArray() {
     j = 0
     min = i
 }
-
-function swap(arr, p1, p2) {
-    let temp = arr[p1]
-    arr[p1] = arr[p2]
-    arr[p2] = temp
-}

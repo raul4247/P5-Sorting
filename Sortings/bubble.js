@@ -1,3 +1,9 @@
+/*
+    i and j need to be global, since they need 
+    to be accessed by the drawing method and 
+    the sorting method without dependency
+*/
+
 let canvasWidth = 800, canvasHeight = 600
 let unsorted = []
 let speedSlider
@@ -6,54 +12,17 @@ let rectWidth = 2
 
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
-    unsorted = new Array(canvasWidth/rectWidth)
-    resetArray()
 
-    speedSlider = createSlider(1, 1001, 101, 100);
+    unsorted = new Array(canvasWidth / rectWidth)
+    resetArray(unsorted, canvasHeight)
+    resetBubbleSort()
+
+    speedSlider = createSlider(1, 1001, 101, 100)
 }
-
 
 function draw() {
     background(0)
-
-    for(let k = 0; k < speedSlider.value(); k++){
-        if(i < unsorted.length){
-            if(j < unsorted.length - i - 1){
-                if (unsorted[j] > unsorted[j+1])
-                    swap(unsorted, j, j + 1)
-                j++
-            }
-            else{
-                i++
-                j = 0
-            }
-        }
-    }
-
-    drawArray()
-}
-
-function drawArray() {
-    for(let c = 0; c < unsorted.length; c++) {
-        if(c == j || c == j+1)
-            fill("red")
-        else
-            fill("white")
-
-        noStroke()
-        rect(c*rectWidth, canvasHeight - unsorted[c], rectWidth, unsorted[c])
-    }
-}
-
-function resetArray() {
-    for(let c = 0; c < unsorted.length; c++)
-        unsorted[c] = random(canvasHeight)
-    i = 0
-    j = 0
-}
-
-function swap(arr, p1, p2) {
-    let temp = arr[p1]
-    arr[p1] = arr[p2]
-    arr[p2] = temp
+    
+    bubbleSort(unsorted, speedSlider.value(), unsorted.length)
+    drawArray(j, j+1, canvasHeight, rectWidth, unsorted)
 }

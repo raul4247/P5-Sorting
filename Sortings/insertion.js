@@ -10,13 +10,15 @@ let speedSlider
 let i, j
 let rectWidth = 2
 
+
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
+    
     unsorted = new Array(canvasWidth/rectWidth)
     resetArray(unsorted, canvasHeight)
     resetInsertionSort(unsorted[0])
 
-    speedSlider = createSlider(1, 1001, 101, 100);
+    speedSlider = createSlider(1, 1001, 101, 100)
 }
 
 

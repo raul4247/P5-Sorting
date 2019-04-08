@@ -46,6 +46,32 @@ function resetInsertionSort(first) {
     value = first
 }
 
+function selectionSort(arr, speed) {
+    for(let k = 0; k < speed; k++){
+        if(i < arr.length){
+            if(j < arr.length){
+                if(arr[j] < arr[min])
+                    min = j;
+                j++
+            }
+            else{
+                if (i != min)
+                    swap(arr, i, min);
+    
+                i++
+                j = i + 1
+                min = i;
+            }
+        }
+    }
+}
+
+function resetSelectionSort() {
+    i = 0
+    j = 0
+    min = 0
+}
+
 function swap(arr, p1, p2) {
     let temp = arr[p1]
     arr[p1] = arr[p2]
